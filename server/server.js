@@ -9,9 +9,12 @@ const publicPath = path.join(__dirname, '../public');
 
 app.use(express.static(publicPath));
 
-app.get('/download-csv', async (req, res)=>{
+app.get('/download.csv', async (req, res)=>{
+  res.send('EDIT server.js');
+
   var dataObject = await giveData(req.query.search);
-  res.csv(dataObject);
+  // res.csv(dataObject);
+  console.log(dataObject);
 });
 
 app.listen(PORT, ()=>{
