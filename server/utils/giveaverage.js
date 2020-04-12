@@ -2,7 +2,7 @@ const cheerio = require('cheerio');
 const axios = require('axios');
 const querystring = require('querystring');
 
-const {formatPrice} = require('./formatPrice');
+const {formatPrice} = require('./formatprice');
 
 async function giveAverage(str){
   var query = querystring.encode({k: str});
