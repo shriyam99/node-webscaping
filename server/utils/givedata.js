@@ -6,6 +6,8 @@ async function giveData(str) {
   for (var i = 0; i < searchlist.length; i++) {
     var item = searchlist[i].trim();
     var avg = await giveAverage(item);
+    if(avg===null)
+      return null;
     dataObject.push({items: item, price: avg});
   }
   return dataObject;
