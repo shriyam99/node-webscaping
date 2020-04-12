@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
-const cheerio = require('cheerio');
-const querystring = require('querystring');
+const csv = require('express-csv');
 
 const {giveData} = require('./utils/givedata');
 const app = express();
@@ -12,9 +11,9 @@ app.use(express.static(publicPath));
 
 app.get('/download-csv', async (req, res)=>{
   var dataObject = await giveData(req.query.search);
-  res.json(dataObject);
-
+  res.csv(dataObject);
 });
+
 app.listen(PORT, ()=>{
   console.log(`Server has started on PORT: ${PORT}`);
 })
