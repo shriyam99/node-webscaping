@@ -11,7 +11,7 @@ app.use(express.static(publicPath));
 
 app.get('/download.csv', async (req, res)=>{
   var dataObject = await giveData(req.query.search);
-  if(dataObject==null)
+  if(dataObject===null)
     res.redirect('/error.html');
   else {
     res.csv(dataObject);
